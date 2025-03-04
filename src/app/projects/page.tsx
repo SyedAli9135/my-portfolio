@@ -41,7 +41,7 @@ export default function Project() {
     },
     {
       title: "LSTM Trained Textual Classifier",
-      link: "https://github.com/SyedAli9135/Fine-Tuning-Lllama",
+      link: "https://github.com/SyedAli9135/Text-Classifier",
       image: "lstm-classifier.png",
       description:
         "This repository contains a notebook for training a textual classifier for news multi-categorical classification on a dataset scraped from various news sources.",

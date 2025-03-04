@@ -16,15 +16,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/blog/page.js"
     ],
-    "/youtube/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/youtube/page.js"
-    ],
     "/projects/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/projects/page.js"
+    ],
+    "/youtube/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/youtube/page.js"
     ],
     "/consulting/page": [
       "static/chunks/webpack.js",

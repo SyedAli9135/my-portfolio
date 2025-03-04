@@ -9,14 +9,16 @@ export default function Consulting() {
     {
       title: "Email Me",
       link: "mailto:syedaliakhtar660@gmail.com",
-      bgColor: "bg-blue-600",
-      hoverColor: "hover:bg-blue-700",
+      bgColor: "bg-red-600",
+      hoverColor: "hover:bg-red-700",
+      icon: "fa-solid fa-envelope",
     },
     {
       title: "Connect on LinkedIn",
       link: "https://www.linkedin.com/in/syed-muhammad-ali-akhtar-261417212/",
-      bgColor: "bg-blue-600",
-      hoverColor: "hover:bg-gray-800",
+      bgColor: "bg-blue-700",
+      hoverColor: "hover:bg-blue-800",
+      icon: "fa-brands fa-linkedin",
     },
   ];
 
@@ -143,7 +145,7 @@ export default function Consulting() {
             Ready to work together? Let's build something amazing!
           </p>
           <button
-            className="mt-4 bg-black text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition mb-12 text-2xl font-semibold"
+            className="mt-4 bg-black text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition mb-12 text-2xl font-semibold cursor-pointer"
             onClick={() => setIsOpen(true)}
           >
             Get in Touch
@@ -176,7 +178,10 @@ export default function Consulting() {
                 href={contactOptions[carouselIndex].link}
                 className={`w-full ${contactOptions[carouselIndex].bgColor} text-white px-6 py-3 rounded-lg ${contactOptions[carouselIndex].hoverColor} transition text-center text-xl font-semibold`}
               >
-                {contactOptions[carouselIndex].title}
+                <i
+                  className={`${contactOptions[carouselIndex].icon} text-2xl`}
+                ></i>
+                <span>{contactOptions[carouselIndex].title}</span>
               </a>
               <button
                 className="text-black mt-4 cursor-pointer text-xl font-medium"
