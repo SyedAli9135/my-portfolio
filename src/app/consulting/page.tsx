@@ -113,7 +113,7 @@ export default function Consulting() {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-100 to-gray-200 text-black px-8 py-6">
-      <main className="mt-20 max-w-5xl mx-auto w-full text-center">
+      <main className="mt-15 max-w-5xl mx-auto w-full text-center">
         <h1 className="text-4xl font-extrabold text-gray-900 text-center mb-10">
           Consulting Services
         </h1>

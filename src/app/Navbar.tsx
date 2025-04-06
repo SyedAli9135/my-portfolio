@@ -20,9 +20,6 @@ export default function Navbar() {
             <Link href="/blog" className="hover:text-gray-600">
               Blog
             </Link>
-            <Link href="/youtube" className="hover:text-gray-600">
-              YouTube
-            </Link>
             <Link href="/projects" className="hover:text-gray-600">
               Projects
             </Link>
@@ -56,13 +53,6 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
             >
               Blog
-            </Link>
-            <Link
-              href="/youtube"
-              className="hover:text-gray-600"
-              onClick={() => setMenuOpen(false)}
-            >
-              YouTube
             </Link>
             <Link
               href="/projects"

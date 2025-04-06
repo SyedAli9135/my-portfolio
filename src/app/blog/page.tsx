@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 export default function Blog() {
@@ -38,50 +38,82 @@ export default function Blog() {
       title:
         "Mastering Concurrency in Python: Threads, Multiprocessing, and Asyncio",
       link: "https://medium.com/@syedaliakhtar660/mastering-concurrency-in-python-a-deep-dive-into-asyncio-threading-multiprocessing-and-testing-403be0e15a2e",
-      image: "",
+      image: "python-asyncio-concurrency.png",
       description:
         "Explore Python’s concurrency landscape with threading, multiprocessing, and asyncio. This hands-on guide walks through real-world examples, performance optimizations, and best practices for writing highly concurrent applications.",
     },
   ];
 
+  const [expanded, setExpanded] = useState(Array(blogPosts.length).fill(false));
+
+  const toggleExpand = (index: number) => {
+    setExpanded((prev) => prev.map((val, i) => (i === index ? !val : val)));
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-r from-gray-100 to-gray-200 text-black p-8">
-      <div className="mt-24 max-w-5xl mx-auto">
-        <h1 className="text-4xl font-extrabold text-gray-900 text-center mb-10">
+    <div className="min-h-screen bg-gradient-to-r from-gray-50 to-gray-200 p-6 sm:p-12">
+      <div className=" mt-15 max-w-6xl mx-auto">
+        <h1 className="text-5xl font-bold text-center text-gray-800 mb-14">
           Blog Posts
         </h1>
+
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((post, index) => (
-            <a
+            <div
               key={index}
-              href={post.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-white rounded-xl p-6 border border-gray-300 shadow-md hover:shadow-xl transition transform hover:-translate-y-1 hover:scale-105"
+              className="bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
             >
-              {/* Display project image */}
-              <div className="mb-4">
-                <Image
-                  src={`/${post.image}`}
-                  alt={post.title}
-                  width={400}
-                  height={250}
-                  className="object-contain rounded-md mx-auto"
-                />
+              <div className="overflow-hidden rounded-t-2xl">
+                {post.image ? (
+                  <Image
+                    src={`/${post.image}`}
+                    alt={post.title}
+                    width={400}
+                    height={200}
+                    className="w-full h-[200px] object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-[200px] bg-gray-300 flex items-center justify-center text-gray-600 text-sm">
+                    No Image Available
+                  </div>
+                )}
               </div>
-              <h4 className="text-2xl font-bold text-black-700 mb-2">
-                {post.title}
-              </h4>
-              <p className="text-gray-700">{post.description}</p>
-            </a>
+              <div className="flex flex-col p-6 flex-grow">
+                <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                  {post.title}
+                </h2>
+                <p className="text-gray-700 text-sm mb-4">
+                  {expanded[index]
+                    ? post.description
+                    : post.description.slice(0, 100) + "..."}
+                </p>
+                <div className="mt-auto">
+                  <button
+                    onClick={() => toggleExpand(index)}
+                    className="text-blue-600 hover:underline text-sm mb-4"
+                  >
+                    {expanded[index] ? "View Less" : "View More"}
+                  </button>
+                  <a
+                    href={post.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block w-full bg-black text-white text-center py-2 rounded-lg font-medium hover:bg-gray-900 transition"
+                  >
+                    Read Full Article →
+                  </a>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
-        <div className="text-center mt-10">
+
+        <div className="text-center mt-12">
           <a
             href="https://medium.com/@syedaliakhtar660"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-2xl font-medium text-black-600 hover:underline transition"
+            className="inline-block text-xl font-semibold text-gray-800 hover:underline"
           >
             View More on Medium →
           </a>

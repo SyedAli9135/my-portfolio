@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 text-black flex flex-col items-center justify-center px-8">
-      <main className="mt-24 max-w-3xl mx-auto text-center">
+      <main className="mt-15 max-w-3xl mx-auto text-center">
         {/* Header: Photo and Introduction Inline */}
         <div className="flex items-center justify-center space-x-6">
           <div className="flex-shrink-0">
