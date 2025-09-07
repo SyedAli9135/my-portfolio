@@ -17,9 +17,6 @@ export default function Navbar() {
             <Link href="/" className="hover:text-gray-600">
               Home
             </Link>
-            <Link href="/blog" className="hover:text-gray-600">
-              Blog
-            </Link>
             <Link href="/projects" className="hover:text-gray-600">
               Projects
             </Link>
@@ -46,13 +43,6 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
             >
               Home
-            </Link>
-            <Link
-              href="/blog"
-              className="hover:text-gray-600"
-              onClick={() => setMenuOpen(false)}
-            >
-              Blog
             </Link>
             <Link
               href="/projects"
