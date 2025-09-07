@@ -168,7 +168,7 @@ export default function Home() {
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
                 I’m a{" "}
                 <span className="font-bold">
-                  Backend Software Engineer and Consultant
+                  Backend Software Engineer and Consultant{" "}
                 </span>
                 with a passion for building systems that aren’t just functional
                 today but remain{" "}
