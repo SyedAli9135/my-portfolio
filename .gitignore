@@ -1,6 +1,9 @@
 # Exclude Node modules
 node_modules/
 
+# Exclude next build folder
+.next
+
 # Logs
 *.log
 npm-debug.log*
