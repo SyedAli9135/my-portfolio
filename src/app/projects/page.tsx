@@ -60,6 +60,12 @@ export default function Project() {
 
   const sideProjects = [
     {
+      title: "RAG Chatbot with FastAPI, Agno, and NiceGUI",
+      link: "https://github.com/SyedAli9135/RAG-ChatBot-Test",
+      description:
+        "A production-ready Retrieval-Augmented Generation (RAG) chatbot that allows users to upload PDF documents and ask questions about them. Built with modern Python frameworks and featuring real-time streaming responses.",
+    },
+    {
       title: "Embracing API Gateway Via Consul and Golang",
       link: "https://github.com/SyedAli9135/Go-ApiGateway",
       description:
