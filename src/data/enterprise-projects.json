@@ -1,0 +1,55 @@
+[
+    {
+      "title": "Delivery Module & 3PL Partner Integrations",
+      "company": "The Entertainer FZ LLC",
+      "role": "Backend Engineer & Consultant",
+      "description":
+        "Architected and optimized the Entertainer’s delivery ecosystem by migrating latency-prone Python services into idempotent, event-driven Golang AWS Lambda functions. Refactored core workflows into smaller, composable units to improve observability, resilience, and fault tolerance. Designed APIs with API Gateway and message-driven orchestration via SQS/SNS, ensuring horizontal scalability with near-zero downtime deployments.",
+      "impact":
+        "Reduced average response latency by 40%, enabled seamless onboarding of new 3PL partners, and improved system reliability for millions of active users during peak traffic.",
+      "technologies": [
+        "Golang",
+        "Python",
+        "AWS Lambda",
+        "API Gateway",
+        "SQS",
+        "SNS",
+        "CloudWatch"
+      ]
+    },
+    {
+      "title": "Enterprise Microservices Platform",
+      "company": "Zyrous",
+      "role": "Backend Consultant",
+      "description":
+        "Developed a Python-based internal framework to standardize microservices development across enterprise projects. Implemented service scaffolding with GraphQL endpoints, event-driven integrations with SQS/SNS, and standardized observability hooks (logging, tracing, metrics). Built CI/CD pipelines that automated provisioning and deployments through Terraform, ensuring consistency across staging and production environments.",
+      "impact":
+        "Accelerated microservice delivery timelines by 60%, reduced onboarding effort for new developers, and established architectural patterns that scaled with business demands.",
+      "technologies": [
+        "Python",
+        "GraphQL",
+        "SQS",
+        "SNS",
+        "Terraform",
+        "CI/CD",
+        "Docker"
+      ]
+    },
+    {
+      "title": "Sustainability & Compliance Evaluation Platform",
+      "company": "Estonian Federal Agency",
+      "role": "Consultant & Backend Engineer",
+      "description":
+        "Engineered backend data pipelines to evaluate corporate compliance and environmental impact reports. Designed ETL workflows to process thousands of structured and unstructured documents, normalizing them into PostgreSQL for efficient querying. Integrated automated validation rules and asynchronous job queues to guarantee consistency and throughput, while exposing secure APIs for regulators and auditors.",
+      "impact":
+        "Delivered a reliable compliance scoring engine, enabling data-driven insights for government regulators and ensuring transparency in environmental accountability.",
+      "technologies": [
+        "Python",
+        "PostgreSQL",
+        "ETL",
+        "Asynchronous Jobs",
+        "Data Pipelines",
+        "REST APIs"
+      ]
+    }
+  ]

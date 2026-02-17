@@ -1,0 +1,134 @@
+[
+  {
+    "title": "Backend Architecture & Systems Design",
+    "icon": "FaServer",
+    "description": [
+      "Scalable, high-performance backend systems",
+      "Python, Go, Node.js with clean architecture",
+      "Microservices and event-driven architectures",
+      "Observability, reliability, and performance tuning"
+    ],
+    "pricing": "From $50/hr"
+  },
+  {
+    "title": "Cloud Infrastructure & Serverless Engineering",
+    "icon": "FaAws",
+    "description": [
+      "AWS Lambda, API Gateway, SQS, DynamoDB, RDS",
+      "Infrastructure as Code with Terraform / CDK",
+      "Cloud cost optimization and scalability planning",
+      "Zero-downtime migration and rollout strategies"
+    ],
+    "pricing": "From $50/hr"
+  },
+  {
+    "title": "Frontend Architecture (React / Next.js)",
+    "icon": "FaCode",
+    "description": [
+      "Production-grade React and Next.js applications",
+      "Frontend performance optimization and scalability",
+      "Design systems and component architecture",
+      "API contracts, caching, and frontend observability"
+    ],
+    "pricing": "From $45/hr"
+  },
+  {
+    "title": "Full-Stack Product Engineering (B2B / B2C)",
+    "icon": "FaUsers",
+    "description": [
+      "End-to-end product delivery for SaaS and consumer apps",
+      "Authentication, billing, rate-limiting, and APIs",
+      "PostgreSQL, MongoDB, Redis architecture decisions",
+      "Frontend + backend system design for scale"
+    ],
+    "pricing": "From $45/hr"
+  },
+  {
+    "title": "AI Systems, RAG & Agent Architectures",
+    "icon": "FaRocket",
+    "description": [
+      "Retrieval-Augmented Generation (RAG) pipelines",
+      "AI agent orchestration and tool execution",
+      "Vector databases, chunking, indexing, evaluation",
+      "Production AI monitoring and regression testing"
+    ],
+    "pricing": "From $65/hr"
+  },
+  {
+    "title": "MCP Integration & AI Tooling Platforms",
+    "icon": "FaCogs",
+    "description": [
+      "Model Context Protocol (MCP) tool integrations",
+      "Secure agent tooling and permission systems",
+      "Observability and auditability for AI tools",
+      "Enterprise AI platform architecture consulting"
+    ],
+    "pricing": "Custom quote"
+  },
+  {
+    "title": "B2B Platform Engineering",
+    "icon": "FaUsers",
+    "description": [
+      "Multi-tenant SaaS architecture and platform design",
+      "Enterprise APIs and partner integrations",
+      "Internal tooling and developer platforms",
+      "Security, compliance, and reliability engineering"
+    ],
+    "pricing": "From $45/hr"
+  },
+  {
+    "title": "B2C Consumer Product Engineering",
+    "icon": "FaRocket",
+    "description": [
+      "High-scale consumer backend systems",
+      "React/Next.js frontend performance architecture",
+      "Authentication, sessions, rate limiting, analytics",
+      "Traffic scaling and growth engineering strategies"
+    ],
+    "pricing": "From $45/hr"
+  },
+  {
+    "title": "Strategic Cloud & Architecture Consulting",
+    "icon": "FaRocket",
+    "description": [
+      "Architecture reviews and technical roadmaps",
+      "Cost, reliability, and scalability trade-off analysis",
+      "Multi-cloud and hybrid architecture guidance",
+      "Technical due diligence for scaling companies"
+    ],
+    "pricing": "$75/hr"
+  },
+  {
+    "title": "Technical Leadership & Engineering Strategy",
+    "icon": "FaCode",
+    "description": [
+      "Engineering team scaling and process design",
+      "CI/CD pipelines and DevOps best practices",
+      "Tech stack evaluation and long-term architecture decisions",
+      "Product-engineering collaboration frameworks"
+    ],
+    "pricing": "Retainer available"
+  },
+  {
+    "title": "Legacy System Modernization",
+    "icon": "FaCogs",
+    "description": [
+      "Monolith to modular or microservice migration",
+      "Database migrations and performance tuning",
+      "API versioning and integration architecture",
+      "Technical debt reduction and refactoring strategy"
+    ],
+    "pricing": "Custom quote"
+  },
+  {
+    "title": "Senior Engineering Mentorship",
+    "icon": "FaUsers",
+    "description": [
+      "1:1 mentorship for mid → senior engineers",
+      "System design and scalability coaching",
+      "Career growth and technical leadership guidance",
+      "Code reviews and architecture mentorship"
+    ],
+    "pricing": "From $50/hr"
+  }
+]

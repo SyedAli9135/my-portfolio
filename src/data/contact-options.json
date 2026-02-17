@@ -1,0 +1,17 @@
+[
+  {
+    "link": "mailto:syedaliakhtar660@gmail.com",
+    "icon": "FaEnvelope",
+    "label": "Email"
+  },
+  {
+    "link": "https://www.linkedin.com/in/syed-muhammad-ali-akhtar-261417212/",
+    "icon": "FaLinkedin",
+    "label": "LinkedIn"
+  },
+  {
+    "link": "https://medium.com/@syedaliakhtar660",
+    "icon": "FaMedium",
+    "label": "Blog"
+  }
+]

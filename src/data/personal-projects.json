@@ -1,0 +1,44 @@
+[
+    {
+      "title": "RAG Chatbot with FastAPI, Agno, and NiceGUI",
+      "link": "https://github.com/SyedAli9135/RAG-ChatBot-Test",
+      "description":
+        "A production-ready Retrieval-Augmented Generation (RAG) chatbot that allows users to upload PDF documents and ask questions about them. Built with modern Python frameworks and featuring real-time streaming responses."
+    },
+    {
+      "title": "Embracing API Gateway Via Consul and Golang",
+      "link": "https://github.com/SyedAli9135/Go-ApiGateway",
+      "description":
+        "API Gateway in Go (Gin framework) with centralized routing, authentication, rate limiting, and Consul-based service discovery."
+    },
+    {
+      "title": "Distributed Task Scheduler with Leader Election",
+      "link": "https://github.com/SyedAli9135/Go-DistributedTaskScheduler",
+      "description":
+        "Distributed scheduler with leader election ensuring reliable task assignment, execution monitoring, and fault tolerance."
+    },
+    {
+      "title": "Real-Time Collaborative Document Editing",
+      "link": "https://github.com/SyedAli9135/Go-RealtimeDocEditor",
+      "description":
+        "Low-latency WebSocket-powered document editor in Go, enabling multiple users to edit collaboratively in real time."
+    },
+    {
+      "title": "Bootcamp Organizing System (Node.js Monolith)",
+      "link": "https://github.com/SyedAli9135/Devcamper_API",
+      "description":
+        "Monolithic Node.js backend for managing bootcamps, courses, and user registrations in an educational platform."
+    },
+    {
+      "title": "Fine-Tuning LLaMA-3 8B with Unsloth",
+      "link": "https://github.com/SyedAli9135/Fine-Tuning-Lllama",
+      "description":
+        "Google Colab notebook for fine-tuning LLaMA-3 8B with LoRA and 4-bit quantization using Unsloth."
+    },
+    {
+      "title": "LSTM Trained Textual Classifier",
+      "link": "https://github.com/SyedAli9135/Text-Classifier",
+      "description":
+        "LSTM-based multi-class news classifier trained on a scraped dataset, showcasing NLP and deep learning capabilities."
+    }
+  ]

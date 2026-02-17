@@ -1,0 +1,27 @@
+[
+    {
+      "icon": "FaServer",
+      "title": "Backend & Distributed Systems",
+      "desc": "Scalable APIs, microservices, event-driven architectures, and high-performance platforms."
+    },
+    {
+      "icon": "FaCloud",
+      "title": "Cloud Architecture & Infrastructure",
+      "desc": "AWS, serverless, Kubernetes, Terraform, IaC, cost optimization, and reliability engineering."
+    },
+    {
+      "icon": "FaUsers",
+      "title": "Technical Consulting & Architecture Strategy",
+      "desc": "System reviews, scalability planning, cloud migration, multi-cloud strategy, and technical leadership guidance."
+    },
+    {
+      "icon": "FaCode",
+      "title": "Full-Stack Product Engineering",
+      "desc": "Enterprise frontends integrated with scalable backends, API contracts, and high-quality UX."
+    },
+    {
+      "icon": "FaRobot",
+      "title": "AI Agents, RAG & MCP Systems",
+      "desc": "Design and implement AI agents, RAG pipelines, and multi-tool MCP integrations with guardrails and observability."
+    }
+  ]
