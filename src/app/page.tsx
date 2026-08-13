@@ -4,10 +4,10 @@ import {
   FaLinkedin,
   FaEnvelope,
   FaMedium,
+  FaGithub,
   FaServer,
-  FaCloud,
+  FaDatabase,
   FaUsers,
-  FaCode,
   FaRobot,
 } from "react-icons/fa";
 import Image from "next/image";
@@ -18,94 +18,114 @@ export default function Home() {
   const iconsMap: { [key: string]: JSX.Element } = {
     FaEnvelope: <FaEnvelope />,
     FaLinkedin: <FaLinkedin />,
+    FaGithub: <FaGithub />,
     FaServer: <FaServer />,
-    FaCloud: <FaCloud />,
+    FaDatabase: <FaDatabase />,
     FaUsers: <FaUsers />,
-    FaCode: <FaCode />,
     FaRobot: <FaRobot />,
     FaMedium: <FaMedium />,
   };
 
-  const technologies = [
-    "Python",
-    "Golang",
-    "Node.js",
-    "React/Next.js",
-    "AWS",
-    "PostgreSQL",
-    "MongoDB",
-    "Redis",
-    "Docker",
-    "Kubernetes",
-    "Terraform",
-    "Serverless",
-    "Microservices",
-    "API Gateway",
-    "RAG Pipelines",
-    "AI Agents",
-    "MCP Integration",
+  const techGroups = [
+    {
+      label: "Languages & Backend",
+      items: ["Python", "Golang", "Node.js", "TypeScript", "Microservices"],
+    },
+    {
+      label: "Data & Cloud",
+      items: [
+        "PostgreSQL",
+        "MongoDB",
+        "DynamoDB",
+        "Redis",
+        "AWS",
+        "Terraform",
+        "Docker",
+      ],
+    },
+    {
+      label: "AI & LLM Systems",
+      items: [
+        "Agent Orchestration",
+        "RAG Pipelines",
+        "MCP",
+        "A2A Protocol",
+        "Vector Search",
+        "Anthropic & OpenAI APIs",
+      ],
+    },
   ];
 
   const testimonials = [
     {
-      name: "Raheel Ahmad, Head of Engineering, Entertainer FZ LLC",
+      name: "Raheel Ahmad",
+      role: "Head of Engineering, The Entertainer FZ LLC",
       text: "Ali modernized our backend, moved critical workloads to AWS Lambda in Go, and helped us scale with zero downtime. His decisions improved reliability and developer productivity massively.",
     },
     {
-      name: "Mason Yarrick, Technical Director, Zyrous",
+      name: "Mason Yarrick",
+      role: "Technical Director, Zyrous",
       text: "Ali designed a Python framework for our microservices architecture with SQS/SNS and GraphQL. His mentorship and system design guidance transformed our engineering practices.",
     },
     {
-      name: "Founder, AI Infrastructure Company",
+      name: "Founder",
+      role: "AI Infrastructure Company",
       text: "Ali implemented RAG pipelines and multi-agent systems for our platform. His work increased data retrieval accuracy and stabilized our AI production systems.",
     },
   ];
 
   return (
-    <div className="bg-white text-gray-900 pt-20 md:pt-20">
-      <main className="max-w-5xl mx-auto px-6 py-16 text-center">
-        <section className="mb-18 flex flex-col items-center gap-6 text-center">
-          <div className="w-44 h-44 md:w-52 md:h-52 rounded-3xl overflow-hidden border-2 border-gray-200 shadow-lg bg-gray-50">
+    <div className="bg-[#fafaf9] text-zinc-900">
+      <main className="max-w-3xl mx-auto px-6 py-16 sm:py-24">
+        {/* Hero */}
+        <section className="mb-24 flex flex-col items-start gap-6">
+          <div className="w-24 h-24 rounded-full overflow-hidden border border-zinc-200 bg-white">
             <Image
               src="/profile_pic.jpg"
-              alt="Syed Ali"
-              width={208}
-              height={208}
+              alt="Syed Muhammad Ali Akhtar"
+              width={96}
+              height={96}
               className="object-cover w-full h-full"
+              priority
             />
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900">
-            Syed Muhammad Ali
-          </h1>
+          <div>
+            <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-zinc-900">
+              Syed Muhammad Ali Akhtar
+            </h1>
+            <p className="mt-2 text-base sm:text-lg text-zinc-500">
+              Senior Backend Engineer &amp; AI Systems Consultant
+            </p>
+          </div>
 
-          <p className="text-lg md:text-xl font-semibold text-gray-700">
-            Senior Software Engineer • Technical Consultant • Enterprise
-            Architect
+          <p className="text-zinc-700 leading-relaxed text-base sm:text-lg max-w-2xl">
+            I&apos;m a senior engineer who spent the last four years building
+            distributed backend systems, databases, and cloud infrastructure
+            for enterprise and consumer products — and the last year applying
+            that same discipline to production AI: agent orchestration, RAG
+            pipelines, and LLM-driven workflow automation, built
+            provider-agnostic across Anthropic, OpenAI, and open-source
+            models. I care more about reliability and correctness under load
+            than about chasing whatever&apos;s trending in AI this month.
           </p>
 
-          <p className="mt-3 text-gray-800 leading-relaxed max-w-3xl text-lg md:text-xl">
-            I partner with B2B and B2C companies to design, scale, and optimize
-            mission-critical systems. From{" "}
-            <strong>high-performance backend architectures </strong>
-            and <strong>cloud-native solutions</strong> to{" "}
-            <strong>AI agents</strong>, <strong>RAG pipelines</strong>, and{" "}
-            <strong>multi-tool MCP integrations</strong>, I ensure your
-            platforms are <strong>reliable, scalable, and future-ready</strong>.
-            Beyond engineering, I provide{" "}
-            <strong>strategic technical guidance</strong>, mentorship for teams,
-            and full-stack product leadership to deliver
-            <strong> enterprise-grade solutions</strong> that align technology
-            with business outcomes.
-          </p>
-
-          <div className="flex flex-col sm:flex-row justify-center gap-3">
+          <div className="flex flex-wrap gap-3 pt-2">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 bg-zinc-900 text-white rounded-md text-sm font-medium hover:bg-zinc-800 transition-colors"
+            >
+              Download Résumé
+            </a>
             {ContactOptions.map((option, i) => (
               <a
                 key={i}
                 href={option.link}
                 target="_blank"
-                className="flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-black transition"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-5 py-2.5 border border-zinc-300 rounded-md text-sm font-medium text-zinc-700 hover:border-zinc-900 hover:text-zinc-900 transition-colors"
               >
                 {iconsMap[option.icon]} {option.label}
               </a>
@@ -113,65 +133,76 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mb-18">
-          <h2 className="text-3xl font-semibold mb-10">
-            Engineering Expertise
+        {/* Expertise */}
+        <section className="mb-24">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-6">
+            What I do
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 text-left">
+          <div className="grid sm:grid-cols-2 gap-6">
             {Expertise.map((e, i) => (
-              <div
-                key={i}
-                className="p-6 border rounded-xl hover:bg-gray-50 transition"
-              >
-                <div className="text-2xl mb-2">{iconsMap[e.icon]}</div>
-                <h3 className="font-medium text-lg">{e.title}</h3>
-                <p className="text-gray-600 mt-2 text-sm">{e.desc}</p>
+              <div key={i} className="border border-zinc-200 rounded-lg p-5 bg-white">
+                <div className="text-lg text-zinc-800 mb-3">{iconsMap[e.icon]}</div>
+                <h3 className="font-medium text-zinc-900">{e.title}</h3>
+                <p className="text-zinc-500 mt-2 text-sm leading-relaxed">{e.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="mb-18">
-          <h2 className="text-3xl font-semibold mb-6">Technologies & Tools</h2>
-          <div className="flex flex-wrap justify-center gap-2">
-            {technologies.map((t, i) => (
-              <span
-                key={i}
-                className="text-sm px-3 py-1 border rounded-md bg-gray-50"
-              >
-                {t}
-              </span>
+        {/* Tech stack */}
+        <section className="mb-24">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-6">
+            Technologies &amp; tools
+          </h2>
+          <div className="flex flex-col gap-5">
+            {techGroups.map((group, i) => (
+              <div key={i} className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
+                <span className="text-sm text-zinc-500 w-44 shrink-0">{group.label}</span>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((t, j) => (
+                    <span
+                      key={j}
+                      className="text-sm px-3 py-1 border border-zinc-200 rounded-md text-zinc-700 bg-white"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </section>
 
-        <section className="mb-20">
-          <h2 className="text-3xl font-semibold mb-8">Client & Peer Reviews</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+        {/* Testimonials */}
+        <section className="mb-24">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-6">
+            What people say
+          </h2>
+          <div className="flex flex-col gap-5">
             {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className="p-6 border rounded-xl text-sm text-gray-700 bg-white/90 shadow-sm"
-              >
-                <p className="italic">“{t.text}”</p>
-                <p className="mt-4 font-medium text-gray-900">{t.name}</p>
+              <div key={i} className="border border-zinc-200 rounded-lg p-5 bg-white">
+                <p className="text-zinc-700 text-sm leading-relaxed">&ldquo;{t.text}&rdquo;</p>
+                <p className="mt-3 text-sm font-medium text-zinc-900">
+                  {t.name} <span className="font-normal text-zinc-500">— {t.role}</span>
+                </p>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="border-t pt-12 mb-16">
-          <h2 className="text-3xl font-semibold mb-3">Work with me</h2>
-          <p className="text-gray-600 mb-6 max-w-xl mx-auto">
-            If you’re building or scaling a product, AI pipeline, or cloud
-            system, let’s discuss how we can design and deliver a reliable
-            solution together.
+        {/* CTA */}
+        <section className="border-t border-zinc-200 pt-14">
+          <h2 className="text-2xl font-semibold text-zinc-900 mb-3">Work with me</h2>
+          <p className="text-zinc-500 mb-6 max-w-xl leading-relaxed">
+            If you&apos;re scaling a backend, modernizing a legacy system, or
+            need production-grade AI workflows built by someone who treats AI
+            as an engineering discipline — let&apos;s talk.
           </p>
           <a
             href="mailto:syedaliakhtar660@gmail.com"
-            className="inline-block px-6 py-3 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-black transition"
+            className="inline-block px-5 py-2.5 bg-zinc-900 text-white rounded-md text-sm font-medium hover:bg-zinc-800 transition-colors"
           >
-            Contact
+            Get in touch
           </a>
         </section>
       </main>

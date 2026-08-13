@@ -2,11 +2,13 @@ import React from "react";
 import {
   FaEnvelope,
   FaLinkedin,
+  FaGithub,
+  FaMedium,
   FaAws,
-  FaCode,
+  FaDatabase,
   FaServer,
   FaCogs,
-  FaRocket,
+  FaRobot,
   FaUsers,
 } from "react-icons/fa";
 import ServiceCard from "./service-card";
@@ -18,54 +20,62 @@ export default function Consulting() {
   const iconsMap: Record<string, IconType> = {
     FaEnvelope,
     FaLinkedin,
+    FaGithub,
+    FaMedium,
     FaServer,
     FaAws,
-    FaCode,
-    FaUsers,
-    FaRocket,
+    FaDatabase,
     FaCogs,
+    FaRobot,
+    FaUsers,
   };
 
   const stats = [
     { number: "4+", label: "Years Experience" },
-    { number: "10+", label: "Projects Delivered" },
-    { number: "3+", label: "Companies Served" },
-    { number: "99%", label: "Client Satisfaction" },
+    { number: "5+", label: "Companies & Clients" },
+    { number: "1M+", label: "End Users Reached" },
   ];
 
   const technologies = [
-    "React",
-    "Next.js",
-    "Node.js",
     "Python",
     "Golang",
+    "Node.js",
     "PostgreSQL",
     "MongoDB",
     "Redis",
     "AWS",
     "Terraform",
     "Docker",
-    "Kubernetes",
+    "RAG",
+    "AI Agents",
+    "MCP",
+    "A2A",
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
-      <section className="max-w-6xl mx-auto px-6 pt-28 pb-20 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-          Engineering consulting for scalable products
+    <div className="min-h-screen bg-[#fafaf9] text-zinc-900">
+      <section className="max-w-3xl mx-auto px-6 pt-20 pb-16">
+        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">
+          Backend, data &amp; AI systems consulting for teams that need
+          production-grade delivery
         </h1>
+        <p className="mt-4 text-zinc-600 leading-relaxed max-w-2xl">
+          I work with founders and engineering teams on the systems underneath
+          the product — backend architecture, databases, cloud
+          infrastructure, and, increasingly, AI agent and LLM workflows built
+          with the same reliability standard as everything else.
+        </p>
 
-        <div className="mt-9 flex flex-wrap justify-center gap-2">
+        <div className="mt-8 flex flex-wrap gap-2">
           {[
-            "AWS & Serverless",
-            "React & Next.js",
-            "Python & Golang",
-            "Microservices",
-            "AI Systems",
+            "Backend & Distributed Systems",
+            "Databases & Cloud",
+            "AI Agent & LLM Systems",
+            "Legacy Modernization",
           ].map((chip) => (
             <span
               key={chip}
-              className="px-3 py-1 rounded-full text-sm border border-gray-500 bg-white text-gray-700"
+              className="px-3 py-1 rounded-md text-sm border border-zinc-200 bg-white text-zinc-600"
             >
               {chip}
             </span>
@@ -73,54 +83,38 @@ export default function Consulting() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 mb-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <section className="max-w-3xl mx-auto px-6 mb-16">
+        <div className="grid grid-cols-3 gap-4">
           {stats.map((s, i) => (
-            <div
-              key={i}
-              className="border border-gray-400 rounded-xl p-5 text-center"
-            >
-              <div className="text-3xl font-bold">{s.number}</div>
-              <div className="text-xs text-gray-500 font-bold uppercase mt-1">
-                {s.label}
-              </div>
+            <div key={i} className="border border-zinc-200 rounded-lg p-5 text-center bg-white">
+              <div className="text-2xl font-semibold text-zinc-900">{s.number}</div>
+              <div className="text-xs text-zinc-500 uppercase tracking-wide mt-1">{s.label}</div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 mb-20">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-semibold">Consulting Services</h2>
-          <p className="text-gray-600 mt-2 max-w-2xl mx-auto">
-            Practical engineering strategies with a focus on scalability,
-            reliability, and cost efficiency.
-          </p>
-        </div>
+      <section className="max-w-3xl mx-auto px-6 mb-20">
+        <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-6">
+          Services
+        </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 gap-5">
           {Services.map((service, i) => (
-            <ServiceCard
-              key={i}
-              service={service}
-              Icon={iconsMap[service.icon]}
-            />
+            <ServiceCard key={i} service={service} Icon={iconsMap[service.icon]} />
           ))}
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 mb-20 text-center">
-        <h2 className="text-2xl font-semibold mb-3">Technology Stack</h2>
-        <p className="text-gray-600 mb-6">
-          Production-tested tools for scalable backend systems and modern
-          frontends.
-        </p>
-
-        <div className="flex flex-wrap justify-center gap-2">
+      <section className="max-w-3xl mx-auto px-6 mb-20">
+        <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-4">
+          Technology stack
+        </h2>
+        <div className="flex flex-wrap gap-2">
           {technologies.map((t) => (
             <span
               key={t}
-              className="px-3 py-1 text-sm border rounded-full bg-white"
+              className="px-3 py-1 text-sm border border-zinc-200 rounded-md bg-white text-zinc-700"
             >
               {t}
             </span>
@@ -128,17 +122,17 @@ export default function Consulting() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 pb-24 text-center border-t pt-14">
-        <h3 className="text-2xl font-semibold mb-3">
-          Let’s discuss your system architecture and roadmap
-        </h3>
-
-        <p className="text-gray-600 max-w-xl mx-auto mb-8">
-          Share your product, constraints, and timeline. I’ll propose a
-          practical technical strategy with scalability and cost in mind.
+      <section className="max-w-3xl mx-auto px-6 pb-24 border-t border-zinc-200 pt-14">
+        <h2 className="text-2xl font-semibold mb-3">
+          Let&apos;s discuss your system architecture and roadmap
+        </h2>
+        <p className="text-zinc-500 max-w-xl mb-8 leading-relaxed">
+          Share your product, constraints, and timeline, and I&apos;ll
+          propose a practical technical approach with scalability and cost
+          in mind.
         </p>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-3">
+        <div className="flex flex-wrap gap-3">
           {ContactOptions.map((option, i) => {
             const Icon = iconsMap[option.icon];
             if (!Icon) return null;
@@ -146,18 +140,20 @@ export default function Consulting() {
               <a
                 key={i}
                 href={option.link}
-                className="flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-black transition"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-5 py-2.5 border border-zinc-300 rounded-md text-sm font-medium text-zinc-700 hover:border-zinc-900 hover:text-zinc-900 transition-colors"
               >
-                <Icon className="text-white text-lg" /> {option.label}
+                <Icon className="text-base" /> {option.label}
               </a>
             );
           })}
 
           <a
             href="/"
-            className="px-6 py-3 border border-gray-300 rounded-lg font-semibold hover:bg-gray-50 transition"
+            className="px-5 py-2.5 rounded-md text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors"
           >
-            Back to Home
+            Back to home
           </a>
         </div>
       </section>

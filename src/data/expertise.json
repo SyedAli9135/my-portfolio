@@ -1,27 +1,22 @@
 [
-    {
-      "icon": "FaServer",
-      "title": "Backend & Distributed Systems",
-      "desc": "Scalable APIs, microservices, event-driven architectures, and high-performance platforms."
-    },
-    {
-      "icon": "FaCloud",
-      "title": "Cloud Architecture & Infrastructure",
-      "desc": "AWS, serverless, Kubernetes, Terraform, IaC, cost optimization, and reliability engineering."
-    },
-    {
-      "icon": "FaUsers",
-      "title": "Technical Consulting & Architecture Strategy",
-      "desc": "System reviews, scalability planning, cloud migration, multi-cloud strategy, and technical leadership guidance."
-    },
-    {
-      "icon": "FaCode",
-      "title": "Full-Stack Product Engineering",
-      "desc": "Enterprise frontends integrated with scalable backends, API contracts, and high-quality UX."
-    },
-    {
-      "icon": "FaRobot",
-      "title": "AI Agents, RAG & MCP Systems",
-      "desc": "Design and implement AI agents, RAG pipelines, and multi-tool MCP integrations with guardrails and observability."
-    }
-  ]
+  {
+    "icon": "FaServer",
+    "title": "Backend & Distributed Systems",
+    "desc": "High-throughput APIs, event-driven services, and microservices in Python, Go, and Node.js — designed for correctness under load, not just to pass a demo."
+  },
+  {
+    "icon": "FaDatabase",
+    "title": "Data & Cloud Infrastructure",
+    "desc": "PostgreSQL, MongoDB, Redis, and message queues on AWS, with Terraform-managed infrastructure, caching strategy, and cost-aware scaling decisions."
+  },
+  {
+    "icon": "FaRobot",
+    "title": "AI Agents & LLM Workflow Systems",
+    "desc": "Agent orchestration, RAG pipelines, MCP tool integrations, and Agent-to-Agent (A2A) coordination for multi-agent systems — built provider-agnostic across Anthropic, OpenAI, and open-source models, with observability and guardrails, not just a demo prompt."
+  },
+  {
+    "icon": "FaUsers",
+    "title": "Technical Leadership & Modernization",
+    "desc": "Architecture reviews, legacy system migrations, and hands-on mentorship for teams scaling past their first version of a product."
+  }
+]

@@ -10,6 +10,11 @@
     "label": "LinkedIn"
   },
   {
+    "link": "https://github.com/SyedAli9135",
+    "icon": "FaGithub",
+    "label": "GitHub"
+  },
+  {
     "link": "https://medium.com/@syedaliakhtar660",
     "icon": "FaMedium",
     "label": "Blog"

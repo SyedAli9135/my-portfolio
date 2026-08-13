@@ -1,55 +1,376 @@
 [
-    {
-      "title": "Delivery Module & 3PL Partner Integrations",
-      "company": "The Entertainer FZ LLC",
-      "role": "Backend Engineer & Consultant",
-      "description":
-        "Architected and optimized the Entertainer’s delivery ecosystem by migrating latency-prone Python services into idempotent, event-driven Golang AWS Lambda functions. Refactored core workflows into smaller, composable units to improve observability, resilience, and fault tolerance. Designed APIs with API Gateway and message-driven orchestration via SQS/SNS, ensuring horizontal scalability with near-zero downtime deployments.",
-      "impact":
-        "Reduced average response latency by 40%, enabled seamless onboarding of new 3PL partners, and improved system reliability for millions of active users during peak traffic.",
-      "technologies": [
-        "Golang",
-        "Python",
-        "AWS Lambda",
-        "API Gateway",
-        "SQS",
-        "SNS",
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Enterprise Microservices Platform",
-      "company": "Zyrous",
-      "role": "Backend Consultant",
-      "description":
-        "Developed a Python-based internal framework to standardize microservices development across enterprise projects. Implemented service scaffolding with GraphQL endpoints, event-driven integrations with SQS/SNS, and standardized observability hooks (logging, tracing, metrics). Built CI/CD pipelines that automated provisioning and deployments through Terraform, ensuring consistency across staging and production environments.",
-      "impact":
-        "Accelerated microservice delivery timelines by 60%, reduced onboarding effort for new developers, and established architectural patterns that scaled with business demands.",
-      "technologies": [
-        "Python",
-        "GraphQL",
-        "SQS",
-        "SNS",
-        "Terraform",
-        "CI/CD",
-        "Docker"
-      ]
-    },
-    {
-      "title": "Sustainability & Compliance Evaluation Platform",
-      "company": "Estonian Federal Agency",
-      "role": "Consultant & Backend Engineer",
-      "description":
-        "Engineered backend data pipelines to evaluate corporate compliance and environmental impact reports. Designed ETL workflows to process thousands of structured and unstructured documents, normalizing them into PostgreSQL for efficient querying. Integrated automated validation rules and asynchronous job queues to guarantee consistency and throughput, while exposing secure APIs for regulators and auditors.",
-      "impact":
-        "Delivered a reliable compliance scoring engine, enabling data-driven insights for government regulators and ensuring transparency in environmental accountability.",
-      "technologies": [
-        "Python",
-        "PostgreSQL",
-        "ETL",
-        "Asynchronous Jobs",
-        "Data Pipelines",
-        "REST APIs"
-      ]
-    }
-  ]
+  {
+    "title": "Agentic Regulatory Compliance Platform",
+    "company": "CodeNinja Inc. (Client: 3E, USA)",
+    "role": "Senior AI Consultant",
+    "description": "Architecting agentic AI capabilities for 3E Insight, the company's regulatory intelligence platform covering chemical and product compliance across frameworks like REACH, TSCA, CLP, GHS, and PFAS restrictions in 150+ countries. Replacing manual analyst review with autonomous agents that monitor regulatory change, cross-reference chemical substance data against jurisdiction-specific obligations, and draft compliance assessments — orchestrated in Python with MCP tool integrations for data retrieval and Agent-to-Agent (A2A) coordination between specialist research, scoring, and drafting agents.",
+    "impact": "Automating a workflow that previously required manual review of regulatory filings across dozens of jurisdictions, cutting analyst turnaround time on compliance assessments for an enterprise regulatory intelligence product.",
+    "technologies": [
+      "Python",
+      "LLM Orchestration",
+      "MCP",
+      "A2A",
+      "RAG",
+      "Multi-Agent Systems",
+      "AWS"
+    ],
+    "architecture": [
+      {
+        "stage": "Regulatory data ingestion",
+        "detail": "Scheduled and event-driven connectors pull updates from regulatory feeds and internal chemical/substance data (REACH, TSCA, CLP, GHS, PFAS lists), normalizing heterogeneous source formats into a canonical document schema before anything is indexed.",
+        "tags": ["Python", "ETL", "Scheduled Jobs"]
+      },
+      {
+        "stage": "Retrieval & indexing (RAG)",
+        "detail": "Documents are chunked and embedded into a vector store with metadata — jurisdiction, substance class, effective date — attached, so retrieval combines semantic search with structured filtering instead of relying on embeddings alone across a fast-moving corpus.",
+        "tags": ["RAG", "Embeddings", "Vector Search"]
+      },
+      {
+        "stage": "MCP tool-calling layer",
+        "detail": "Agents reach internal systems through a defined set of MCP-exposed tools — substance lookup, jurisdiction mapping, historical filing lookup — rather than free-form access, so every read is scoped, typed, and auditable.",
+        "tags": ["MCP", "Tool Calling"]
+      },
+      {
+        "stage": "A2A multi-agent handoff",
+        "detail": "Specialist agents (research, scoring, drafting) each publish an Agent-to-Agent capability card; a coordinator agent delegates subtasks and stitches partial results into one assessment, rather than one generalist agent trying to do the whole job.",
+        "tags": ["A2A", "Multi-Agent Orchestration"]
+      },
+      {
+        "stage": "Guardrails, validation & audit trail",
+        "detail": "Every agent action and tool call is logged with inputs and outputs. Confidence thresholds route low-certainty assessments to a human analyst for review before anything reaches a customer-facing report — the system is designed to be checked, not trusted blindly.",
+        "tags": ["Observability", "Human-in-the-loop"]
+      },
+      {
+        "stage": "Compliance insight output",
+        "detail": "Finalized assessments surface in the analyst dashboard with citations back to the source regulatory text, so a reviewer can trace the agent's reasoning to its evidence instead of taking the output on faith.",
+        "tags": ["Dashboard", "Auditability"]
+      }
+    ],
+    "architectureNote": "Illustrative of the system class — representative of the architecture pattern, not an exact disclosure of 3E's proprietary implementation."
+  },
+  {
+    "title": "Delivery Platform & 3PL Partner Integrations",
+    "company": "The Entertainer FZ LLC",
+    "role": "Senior Software Consultant",
+    "description": "Led a 5-engineer delivery squad migrating latency-prone Python services to idempotent, event-driven Go on AWS Lambda. Owned module-level architecture for Americana (UAE food services) — outlet management, dynamic menus, real-time order processing — and onboarded new 3PL partner Smiles into the delivery network via API Gateway and SQS/SNS message-driven orchestration.",
+    "impact": "Cut API latency by ~40% (850ms to 510ms) and infrastructure cost by ~35%, with near-zero downtime deployments across 1M+ daily transactions.",
+    "technologies": [
+      "Golang",
+      "Python",
+      "AWS Lambda",
+      "API Gateway",
+      "SQS",
+      "SNS",
+      "Redis"
+    ],
+    "architecture": [
+      {
+        "stage": "Order / delivery event",
+        "detail": "Order and delivery-state changes publish as events the instant they occur upstream, rather than being polled for, keeping every downstream consumer in near real-time sync.",
+        "tags": ["Event-Driven"]
+      },
+      {
+        "stage": "API Gateway & auth",
+        "detail": "Requests are authenticated and rate-limited at the gateway before reaching business logic, so Lambda functions never have to defend themselves against malformed or abusive traffic directly.",
+        "tags": ["AWS API Gateway", "Rate Limiting"]
+      },
+      {
+        "stage": "Go Lambda business logic",
+        "detail": "Order and delivery logic was rewritten from Python to Go, using goroutines to run downstream calls — inventory, pricing, 3PL status — concurrently, with explicit error handling to avoid silently partial-failed requests.",
+        "tags": ["Golang", "AWS Lambda", "Concurrency"]
+      },
+      {
+        "stage": "SQS / SNS async fan-out",
+        "detail": "Non-blocking work — notifications, analytics events, partner sync — fans out via SNS to multiple SQS consumers, decoupling the request path from slower downstream work and absorbing traffic spikes without backpressure on the API.",
+        "tags": ["SQS", "SNS", "Decoupling"]
+      },
+      {
+        "stage": "3PL partner integration",
+        "detail": "Webhook handlers normalize inconsistent payloads from partners — Careem, Grubtech, and newly onboarded Smiles — into one internal delivery-status model, using idempotency keys so retried webhook deliveries can't double-process an order.",
+        "tags": ["Webhooks", "Idempotency"]
+      },
+      {
+        "stage": "Redis cache & status",
+        "detail": "Frequently read state — outlet availability, live order status — is cached in Redis with short TTLs, which is what took average API latency from 850ms to 510ms while keeping data fresh enough for real-time tracking.",
+        "tags": ["Redis", "Caching"]
+      }
+    ]
+  },
+  {
+    "title": "HAPI AI — Multi-Agent Customer Support System",
+    "company": "The Entertainer FZ LLC",
+    "role": "Senior Software Consultant",
+    "description": "Designed and built a multi-agent customer support and sales system with contextual retrieval over a Pinecone vector store, intelligent routing between agents, and a React/TypeScript interface with real-time streaming responses — engineered for production reliability, not just a chat demo.",
+    "impact": "Automated personalized customer interactions for a B2C platform serving 50K+ users, reducing response latency and manual support load.",
+    "technologies": [
+      "RAG",
+      "Vector Search (Pinecone)",
+      "LLM APIs",
+      "Python",
+      "React",
+      "TypeScript"
+    ],
+    "architecture": [
+      {
+        "stage": "Query intake",
+        "detail": "Incoming messages are captured with session and user context attached, so downstream agents reason over conversation history instead of a single message in isolation.",
+        "tags": ["Session Context"]
+      },
+      {
+        "stage": "Intent routing agent",
+        "detail": "A lightweight classifier agent tags each query — support, sales, general — before any expensive retrieval runs, so simple questions stay fast instead of paying the cost of the full pipeline.",
+        "tags": ["Intent Classification"]
+      },
+      {
+        "stage": "RAG retrieval (Pinecone)",
+        "detail": "Product, policy, and FAQ content is retrieved from a Pinecone index scoped to the classified intent's namespace, which improves both retrieval precision and latency versus searching the entire corpus every time.",
+        "tags": ["Pinecone", "Vector Search"]
+      },
+      {
+        "stage": "Specialist agent handoff",
+        "detail": "Routed queries hand off to a specialist agent — support or sales — with a narrower, task-specific toolset and prompt, rather than one generalist agent trying to cover every case.",
+        "tags": ["Multi-Agent", "Handoff"]
+      },
+      {
+        "stage": "Streaming response",
+        "detail": "Responses stream token-by-token to the React/TypeScript frontend over a persistent connection, so the user sees the agent composing an answer instead of waiting on a full round trip.",
+        "tags": ["React", "Streaming"]
+      },
+      {
+        "stage": "Logging & feedback loop",
+        "detail": "Every turn, tool call, and outcome is logged, feeding a review pipeline used to catch regressions and refine prompts and routing rules as real usage patterns emerge.",
+        "tags": ["Observability", "Evaluation"]
+      }
+    ]
+  },
+  {
+    "title": "Real-Time Socio-Analytics Platform",
+    "company": "OCloud Solutions",
+    "role": "Software Engineer",
+    "description": "Built a real-time analytics platform tracking cross-platform listening behavior, integrating Apple Music and Spotify APIs to unify user profiles and rankings on top of the in-house Python microservices framework.",
+    "impact": "Processed 80K+ daily events with near-instant profile updates, giving the product team live visibility into engagement across two external music platforms.",
+    "technologies": [
+      "Python",
+      "FastAPI",
+      "Celery",
+      "Redis",
+      "PostgreSQL",
+      "Apple Music API",
+      "Spotify API"
+    ],
+    "architecture": [
+      {
+        "stage": "Third-party event ingestion",
+        "detail": "Webhook and polling connectors pull listening activity from Apple Music and Spotify, normalizing two different API shapes and rate-limit models into one internal event schema.",
+        "tags": ["Apple Music API", "Spotify API"]
+      },
+      {
+        "stage": "Event queue (Celery / Redis)",
+        "detail": "Incoming events land on a Celery/Redis task queue rather than being processed inline, so a traffic burst from one platform can't starve processing of the other.",
+        "tags": ["Celery", "Redis"]
+      },
+      {
+        "stage": "Profile aggregation workers",
+        "detail": "Background workers aggregate raw events into per-user listening profiles and rankings using incremental updates rather than full recomputation, which is what keeps per-event processing sub-second.",
+        "tags": ["Python", "Workers"]
+      },
+      {
+        "stage": "PostgreSQL profile store",
+        "detail": "Aggregated profiles persist in PostgreSQL with a denormalized read model for the ranking leaderboard — trading some write-side complexity for fast reads on the product's most-viewed screen.",
+        "tags": ["PostgreSQL"]
+      },
+      {
+        "stage": "Rate-limit & backoff handling",
+        "detail": "Both third-party APIs enforce strict quotas; a token-bucket limiter with exponential backoff on 429 responses keeps the platform inside quota instead of dropping events under load.",
+        "tags": ["Rate Limiting", "Resilience"]
+      },
+      {
+        "stage": "Analytics API",
+        "detail": "A REST layer exposes profile and ranking data to the frontend, with the leaderboard endpoint cached separately since it changes far less often than individual user profiles.",
+        "tags": ["REST API", "Caching"]
+      }
+    ]
+  },
+  {
+    "title": "Real-Time Logistics Tracking & Notification System",
+    "company": "InvoByte",
+    "role": "Software Engineer",
+    "description": "Built a real-time logistics tracking system for warehouse and delivery operations, combining GPS ingestion, QR-code scanning workflows, and WebSocket-based live updates with automated notifications, on a Python (Flask) backend.",
+    "impact": "Improved on-time delivery rates by ~18% by giving dispatch teams live shipment visibility instead of relying on manual check-in calls.",
+    "technologies": [
+      "Python",
+      "Flask",
+      "WebSockets",
+      "Redis",
+      "MongoDB",
+      "PostgreSQL"
+    ],
+    "architecture": [
+      {
+        "stage": "GPS & QR event capture",
+        "detail": "Driver mobile devices stream GPS coordinates and push scan events whenever a package's QR code is scanned at a checkpoint, giving two independent signals of shipment progress instead of relying on one.",
+        "tags": ["GPS", "QR Scanning"]
+      },
+      {
+        "stage": "Flask ingestion API",
+        "detail": "A Flask API validates and accepts incoming location and scan events, writing them to MongoDB for flexible, high-write-throughput storage of raw tracking data.",
+        "tags": ["Flask", "MongoDB"]
+      },
+      {
+        "stage": "WebSocket broadcast layer",
+        "detail": "A WebSocket server pushes live location and status updates to connected dispatch dashboards the moment new events land, replacing a previous poll-every-few-seconds pattern that lagged behind reality.",
+        "tags": ["WebSockets"]
+      },
+      {
+        "stage": "Redis pub/sub fan-out",
+        "detail": "Redis pub/sub decouples the ingestion API from the WebSocket layer, so multiple dashboard instances can subscribe to the same event stream without the ingestion path knowing who's connected.",
+        "tags": ["Redis", "Pub/Sub"]
+      },
+      {
+        "stage": "Automated notification triggers",
+        "detail": "Rule-based triggers — delayed shipment, missed checkpoint, delivery confirmation — fire SMS/email notifications automatically instead of dispatch staff having to watch a screen and act manually.",
+        "tags": ["Notifications", "Rules Engine"]
+      },
+      {
+        "stage": "PostgreSQL reporting store",
+        "detail": "Processed tracking history rolls up into PostgreSQL for historical reporting and the on-time-delivery metrics used to measure the system's own impact.",
+        "tags": ["PostgreSQL", "Reporting"]
+      }
+    ]
+  },
+  {
+    "title": "Delivery Analytics & Search Pipeline",
+    "company": "The Entertainer FZ LLC",
+    "role": "Senior Software Consultant",
+    "description": "Built search and analytics pipelines for delivery operations, combining OpenSearch for fast merchant/outlet search with AWS Glue ETL jobs and Lambda-triggered cron tasks to power near-real-time operational reporting for the delivery business.",
+    "impact": "Gave operations teams near-real-time visibility into delivery performance across outlets and partners, replacing manual spreadsheet-based reporting.",
+    "technologies": [
+      "OpenSearch",
+      "AWS Glue",
+      "AWS Lambda",
+      "Python",
+      "CloudWatch"
+    ],
+    "architecture": [
+      {
+        "stage": "Scheduled extraction (Glue)",
+        "detail": "AWS Glue jobs, triggered on a schedule, extract delivery, order, and outlet data from operational data stores into a form suitable for downstream analytics processing.",
+        "tags": ["AWS Glue", "ETL"]
+      },
+      {
+        "stage": "Lambda-triggered transforms",
+        "detail": "Cron-triggered Lambda functions run transform steps — aggregation by outlet, partner, and time window — between extraction and load, keeping each step small, independently testable, and independently retryable on failure.",
+        "tags": ["AWS Lambda", "Cron"]
+      },
+      {
+        "stage": "OpenSearch indexing",
+        "detail": "Transformed data is indexed into OpenSearch, giving operations staff sub-second full-text and faceted search across merchants and outlets instead of hitting the primary transactional database.",
+        "tags": ["OpenSearch", "Indexing"]
+      },
+      {
+        "stage": "Query & aggregation layer",
+        "detail": "Pre-built OpenSearch aggregations power operational dashboards — delivery times by outlet, partner performance — without a hand-written SQL query for every new report request.",
+        "tags": ["Aggregations", "Dashboards"]
+      },
+      {
+        "stage": "CloudWatch monitoring",
+        "detail": "Pipeline health — job failures, data freshness, index lag — is tracked in CloudWatch with alarms, so a stalled ETL job gets caught before stale data reaches an operations dashboard.",
+        "tags": ["CloudWatch", "Alerting"]
+      }
+    ]
+  },
+  {
+    "title": "Enterprise Microservices Framework",
+    "company": "OCloud Solutions (Client: Zyrous)",
+    "role": "Backend Consultant",
+    "description": "Developed a Python framework to standardize microservices development across enterprise projects: service scaffolding, GraphQL endpoints, event-driven integrations via SQS/SNS, and standardized observability (logging, tracing, metrics). Built Terraform-driven CI/CD pipelines for consistent staging and production provisioning.",
+    "impact": "Cut microservice delivery timelines by ~60% and reduced onboarding effort for new engineers by establishing shared architectural patterns.",
+    "technologies": [
+      "Python",
+      "GraphQL",
+      "SQS",
+      "SNS",
+      "Terraform",
+      "CI/CD",
+      "Docker"
+    ],
+    "architecture": [
+      {
+        "stage": "Service scaffold",
+        "detail": "A shared, CLI-generated framework baseline gave every new service consistent project structure, config loading, and health-check endpoints from the start, cutting new-service bootstrap time from days to hours.",
+        "tags": ["Python", "Scaffolding"]
+      },
+      {
+        "stage": "GraphQL API layer",
+        "detail": "Each service exposed a typed GraphQL schema instead of ad hoc REST endpoints, giving frontend teams one contract to query across services without over- or under-fetching data.",
+        "tags": ["GraphQL"]
+      },
+      {
+        "stage": "Event bus (SQS / SNS)",
+        "detail": "Cross-service communication ran through SNS topics fanned out to per-consumer SQS queues, with dead-letter queues catching poison messages instead of silently dropping them.",
+        "tags": ["SQS", "SNS", "DLQ"]
+      },
+      {
+        "stage": "Datastore layer",
+        "detail": "The framework abstracted PostgreSQL and DynamoDB behind a common data-access interface, letting teams pick the right store per service without duplicating connection and retry logic.",
+        "tags": ["PostgreSQL", "DynamoDB"]
+      },
+      {
+        "stage": "Observability hooks",
+        "detail": "Structured logging, distributed tracing, and metrics were wired in at the framework level, so every service was debuggable in production on day one instead of having observability bolted on after an incident.",
+        "tags": ["Logging", "Tracing", "Metrics"]
+      },
+      {
+        "stage": "Terraform CI/CD",
+        "detail": "Infrastructure and deploy pipelines were templated in Terraform and reused per service, turning a new service's staging and production provisioning into a config change instead of a manual setup.",
+        "tags": ["Terraform", "CI/CD"]
+      }
+    ]
+  },
+  {
+    "title": "Compliance & Sustainability Evaluation Platform",
+    "company": "OCloud Solutions (Client: Estonian Federal Agency)",
+    "role": "Backend Consultant",
+    "description": "Built backend data pipelines to evaluate corporate compliance and environmental impact reports — ETL workflows normalizing thousands of structured and unstructured documents into PostgreSQL, automated validation rules, and asynchronous job queues, exposed through secure APIs for regulators and auditors.",
+    "impact": "Delivered a reliable compliance scoring engine giving government regulators data-driven, auditable insight into environmental accountability.",
+    "technologies": [
+      "Python",
+      "PostgreSQL",
+      "ETL",
+      "Asynchronous Jobs",
+      "REST APIs"
+    ],
+    "architecture": [
+      {
+        "stage": "Document ingestion",
+        "detail": "Corporate compliance and environmental impact reports arrived in mixed formats — PDF, spreadsheets, scanned filings — and an ingestion layer classified and routed each one to the right parser.",
+        "tags": ["Document Processing"]
+      },
+      {
+        "stage": "ETL normalization",
+        "detail": "Extracted data was normalized into a consistent schema, with unit conversion and validation rules catching malformed or inconsistent submissions before they ever reached the database.",
+        "tags": ["ETL", "Data Validation"]
+      },
+      {
+        "stage": "PostgreSQL data store",
+        "detail": "Normalized records were stored in PostgreSQL with indexes tuned for the regulator's actual query patterns — by company, by region, by reporting period — keeping dashboard queries fast at scale.",
+        "tags": ["PostgreSQL", "Query Optimization"]
+      },
+      {
+        "stage": "Validation rules engine",
+        "detail": "A configurable rules engine flagged submissions that failed compliance thresholds automatically, instead of requiring a human reviewer to check every report line by line.",
+        "tags": ["Rules Engine"]
+      },
+      {
+        "stage": "Async job queue scoring",
+        "detail": "Compliance scoring ran as asynchronous background jobs so large batch submissions didn't block the ingestion API, with job status trackable end-to-end.",
+        "tags": ["Async Jobs", "Queue"]
+      },
+      {
+        "stage": "Secure API for regulators",
+        "detail": "A REST API with role-based access exposed scored results to regulators and auditors, with every access logged for accountability.",
+        "tags": ["REST API", "RBAC"]
+      }
+    ]
+  }
+]

@@ -7,26 +7,26 @@ export default function ServiceCard({
   service: {
     title: string;
     description: string[];
-    pricing: string;
+    engagement: string;
   };
   Icon: React.ComponentType<{ className?: string }>;
 }) {
   return (
-    <div className="bg-white border border-gray-300 rounded-2xl p-6 flex flex-col shadow-sm hover:shadow-md transition">
+    <div className="bg-white border border-zinc-200 rounded-lg p-6 flex flex-col">
       <div className="flex items-center gap-3 mb-4">
-        <Icon className="text-gray-700 text-xl" />
-        <h3 className="font-semibold text-lg text-gray-900">{service.title}</h3>
+        <Icon className="text-zinc-700 text-lg" />
+        <h3 className="font-medium text-zinc-900">{service.title}</h3>
       </div>
 
-      <ul className="text-sm text-gray-600 space-y-2 mb-5">
+      <ul className="text-sm text-zinc-500 space-y-2 mb-5 leading-relaxed">
         {service.description.map((d, i) => (
-          <li key={i}>• {d}</li>
+          <li key={i}>· {d}</li>
         ))}
       </ul>
 
-      <div className="mt-auto pt-4 border-t border-gray-100 flex justify-between text-sm font-medium">
-        <span className="text-black-500">Pricing</span>
-        <span className="text-gray-900">{service.pricing}</span>
+      <div className="mt-auto pt-4 border-t border-zinc-100 flex justify-between text-sm">
+        <span className="text-zinc-400">Engagement</span>
+        <span className="text-zinc-700">{service.engagement}</span>
       </div>
     </div>
   );

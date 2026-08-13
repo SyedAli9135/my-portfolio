@@ -4,63 +4,70 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
 
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/consulting", label: "Consulting" },
+];
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="bg-gray-100 text-black">
-      {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full bg-gray-200 bg-opacity-90 backdrop-blur-md shadow-md py-6 px-8 border-b border-gray-400 z-50">
-        <div className="flex justify-center items-center max-w-7xl mx-auto">
-          {/* Navigation Links - Centered */}
-          <div className="hidden md:flex space-x-8 text-lg font-semibold">
-            <Link href="/" className="hover:text-gray-600">
-              Home
-            </Link>
-            <Link href="/projects" className="hover:text-gray-600">
-              Projects
-            </Link>
-            <Link href="/consulting" className="hover:text-gray-600">
-              Consulting
-            </Link>
-          </div>
+    <nav className="fixed top-0 left-0 w-full bg-[#fafaf9]/90 backdrop-blur-sm border-b border-[#e4e4e3] z-50">
+      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+        <Link href="/" className="text-sm font-semibold tracking-tight text-zinc-900">
+          Syed Ali
+        </Link>
 
-          {/* Hamburger Menu for Mobile */}
-          <button
-            className="md:hidden text-2xl absolute right-6"
-            onClick={() => setMenuOpen(!menuOpen)}
+        <div className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
+          {links.map((link) => (
+            <Link key={link.href} href={link.href} className="hover:text-zinc-900 transition-colors">
+              {link.label}
+            </Link>
+          ))}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-1.5 border border-zinc-300 rounded-md text-zinc-900 hover:border-zinc-900 transition-colors"
           >
-            {menuOpen ? <FiX size={32} /> : <FiMenu size={32} />}
-          </button>
+            Resume
+          </a>
         </div>
 
-        {/* Mobile Menu */}
-        {menuOpen && (
-          <div className="absolute top-full left-0 w-full bg-gray-200 p-6 flex flex-col space-y-6 items-center md:hidden text-lg font-semibold">
+        <button
+          className="md:hidden text-zinc-700"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
+        </button>
+      </div>
+
+      {menuOpen && (
+        <div className="md:hidden border-t border-[#e4e4e3] bg-[#fafaf9] px-6 py-4 flex flex-col gap-4 text-sm text-zinc-700">
+          {links.map((link) => (
             <Link
-              href="/"
-              className="hover:text-gray-600"
+              key={link.href}
+              href={link.href}
+              className="hover:text-zinc-900"
               onClick={() => setMenuOpen(false)}
             >
-              Home
+              {link.label}
             </Link>
-            <Link
-              href="/projects"
-              className="hover:text-gray-600"
-              onClick={() => setMenuOpen(false)}
-            >
-              Projects
-            </Link>
-            <Link
-              href="/consulting"
-              className="hover:text-gray-600"
-              onClick={() => setMenuOpen(false)}
-            >
-              Consulting
-            </Link>
-          </div>
-        )}
-      </nav>
-    </div>
+          ))}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-900"
+            onClick={() => setMenuOpen(false)}
+          >
+            Resume
+          </a>
+        </div>
+      )}
+    </nav>
   );
 }

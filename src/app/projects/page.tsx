@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import ProfessionalProjects from "../../data/enterprise-projects.json";
 import PersonalProjects from "../../data/personal-projects.json";
+import ArchitectureFlow from "./architecture-flow";
 
 export default function Project() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -12,45 +13,49 @@ export default function Project() {
   };
 
   return (
-    <div className="min-h-screen bg-white from-gray-50 via-gray-100 to-gray-200 p-4 sm:p-8">
-      <div className="max-w-7xl mx-auto mt-18">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-center text-gray-900 mb-6">
-          Technical Projects & Engineering Showcase
+    <div className="min-h-screen bg-[#fafaf9] px-6 py-16 sm:py-20">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-zinc-900 mb-3">
+          Projects
         </h1>
-        <p className="text-base md:text-lg lg:text-xl text-gray-700 text-center max-w-3xl mx-auto mb-12">
-          Deep dives into enterprise-level engineering projects, RAG & AI
-          systems, and innovative backend solutions. Each project demonstrates
-          design, scalability, and real-world impact.
+        <p className="text-zinc-500 max-w-2xl mb-12 leading-relaxed">
+          Enterprise delivery work and side projects across backend systems,
+          databases, and AI agent / LLM workflows.
         </p>
 
-        <section className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 auto-rows-auto">
+        <section className="grid gap-5 md:grid-cols-2">
           {ProfessionalProjects.map((proj, idx) => (
             <div
               key={idx}
-              className="bg-white/70 backdrop-blur-xl rounded-3xl border border-gray-200 shadow p-6 flex flex-col"
-              style={{ alignSelf: "start", cursor: "pointer" }}
+              className="bg-white border border-zinc-200 rounded-lg p-6 flex flex-col self-start"
             >
-              <span className="inline-block mb-3 px-3 py-1 text-xs font-bold bg-gray-900 text-white rounded-full w-fit">
+              <span className="inline-block mb-3 text-xs font-medium text-zinc-500 uppercase tracking-wide">
                 {proj.company}
               </span>
-              <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-2">
+              <h3 className="text-lg font-semibold text-zinc-900 mb-1">
                 {proj.title}
               </h3>
-              <p className="text-gray-600 font-medium mb-3">{proj.role}</p>
-              <p className="text-gray-800 text-base md:text-lg mb-3">
+              <p className="text-zinc-500 text-sm mb-3">{proj.role}</p>
+              <p className="text-zinc-700 text-sm leading-relaxed mb-3">
                 {expandedIndex === idx
                   ? proj.description
-                  : proj.description.slice(0, 180) + "..."}
+                  : proj.description.slice(0, 170) + "..."}
               </p>
-              <p className="text-gray-900 font-semibold mb-3">
-                <span className="font-bold">Impact: </span>
+              <p className="text-zinc-800 text-sm mb-4">
+                <span className="font-medium">Impact: </span>
                 {proj.impact}
               </p>
-              <div className="flex flex-wrap gap-2 mb-3">
+              {expandedIndex === idx && proj.architecture && (
+                <ArchitectureFlow
+                  steps={proj.architecture}
+                  note={"architectureNote" in proj ? proj.architectureNote : undefined}
+                />
+              )}
+              <div className="flex flex-wrap gap-2 mb-4">
                 {proj.technologies.map((tech, i) => (
                   <span
                     key={i}
-                    className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-[10px] md:text-xs font-medium"
+                    className="px-2 py-1 bg-zinc-50 border border-zinc-200 text-zinc-600 rounded-md text-xs"
                   >
                     {tech}
                   </span>
@@ -58,27 +63,28 @@ export default function Project() {
               </div>
               <button
                 onClick={() => toggleExpand(idx)}
-                className="text-black hover:underline text-sm md:text-base font-semibold"
+                className="text-zinc-900 hover:underline text-sm font-medium mt-auto text-left"
               >
-                {expandedIndex === idx ? "View Less" : "View More"}
+                {expandedIndex === idx
+                  ? "View less"
+                  : "View architecture & details"}
               </button>
             </div>
           ))}
         </section>
 
-        <section className="mt-12">
-          <h2 className="text-2xl md:text-3xl lg:text-3xl font-black text-gray-900 mb-6 text-center">
-            Side Projects & Open Source
+        <section className="mt-16">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-6">
+            Side projects &amp; open source
           </h2>
-          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {PersonalProjects.map((proj, idx) => (
               <div
                 key={idx + ProfessionalProjects.length}
-                className="relative bg-white/70 backdrop-blur-xl rounded-3xl border border-gray-200 shadow p-4 flex flex-col"
-                style={{ alignSelf: "start", cursor: "pointer" }}
+                className="bg-white border border-zinc-200 rounded-lg p-5 flex flex-col self-start"
               >
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-lg md:text-xl font-bold text-gray-900">
+                <div className="flex justify-between items-start mb-2 gap-2">
+                  <h3 className="text-sm font-semibold text-zinc-900">
                     {proj.title}
                   </h3>
                   {proj.link && (
@@ -86,14 +92,15 @@ export default function Project() {
                       href={proj.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-900 bg-gray-100 hover:bg-gray-200 p-1 rounded-full flex items-center justify-center"
+                      aria-label={`${proj.title} on GitHub`}
+                      className="text-zinc-500 hover:text-zinc-900 shrink-0"
                     >
                       <FaGithub className="w-4 h-4" />
                     </a>
                   )}
                 </div>
 
-                <p className="text-gray-800 text-base md:text-lg mb-3">
+                <p className="text-zinc-500 text-sm leading-relaxed mb-3">
                   {expandedIndex === idx + ProfessionalProjects.length
                     ? proj.description
                     : proj.description.slice(0, 100) + "..."}
@@ -103,11 +110,11 @@ export default function Project() {
                   onClick={() =>
                     toggleExpand(idx + ProfessionalProjects.length)
                   }
-                  className="text-black hover:underline text-sm md:text-base font-semibold mt-auto"
+                  className="text-zinc-900 hover:underline text-sm font-medium mt-auto text-left"
                 >
                   {expandedIndex === idx + ProfessionalProjects.length
-                    ? "View Less"
-                    : "View More"}
+                    ? "View less"
+                    : "View more"}
                 </button>
               </div>
             ))}
